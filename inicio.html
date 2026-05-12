@@ -62,19 +62,7 @@
         <td class="restringir">RESTRINGIR</td>
         <td>Un grupo siempre pertenece a una temporada. Si se modifica el id de la temporada, el cambio se propaga a los grupos. No se puede borrar una temporada con grupos activos.</td>
     </tr>
-    </table>
 
-    <h2>2. Fechas y Partidos</h2>
-
-<table>
-    <tr>
-        <th>Tabla Padre</th>
-        <th>Tabla Hijo</th>
-        <th>Insercion</th>
-        <th>Modificacion</th>
-        <th>Borrado</th>
-        <th>Justificacion</th>
-    </tr>
     <tr>
         <td>Temporadas</td>
         <td>Fechas</td>
@@ -115,19 +103,7 @@
         <td class="cascada">CASCADA</td>
         <td>Un resultado siempre corresponde a un partido. Si se elimina un partido por error de carga, su resultado tambien debe eliminarse porque no tiene sentido tener un resultado sin partido.</td>
     </tr>
-</table>
 
-<h2>3. Equipos, Entrenadores y Traspasos</h2>
-
-<table>
-    <tr>
-        <th>Tabla Padre</th>
-        <th>Tabla Hijo</th>
-        <th>Insercion</th>
-        <th>Modificacion</th>
-        <th>Borrado</th>
-        <th>Justificacion</th>
-    </tr>
     <tr>
         <td>Equipos</td>
         <td>Entrenadores</td>
@@ -168,19 +144,7 @@
         <td class="restringir">RESTRINGIR</td>
         <td>El traspaso tambien referencia al torneo en que ocurre. No se puede eliminar el torneo mientras existan traspasos registrados en el.</td>
     </tr>
-</table>
- 
-<h2>4. Planillas de Partido</h2>
 
-<table>
-    <tr>
-        <th>Tabla Padre</th>
-        <th>Tabla Hijo</th>
-        <th>Insercion</th>
-        <th>Modificacion</th>
-        <th>Borrado</th>
-        <th>Justificacion</th>
-    </tr>
     <tr>
         <td>Partidos</td>
         <td>Planillas</td>
@@ -205,19 +169,6 @@
         <td class="restringir">RESTRINGIR</td>
         <td>La planilla registra goles, tarjetas y minutos de cada jugador. No se puede eliminar un jugador con planillas registradas porque sus estadisticas son parte del historial del torneo.</td>
     </tr>
-</table>
-
-<h2>5. Tabla de Posiciones</h2>
-
-<table>
-    <tr>
-        <th>Tabla Padre</th>
-        <th>Tabla Hijo</th>
-        <th>Insercion</th>
-        <th>Modificacion</th>
-        <th>Borrado</th>
-        <th>Justificacion</th>
-    </tr>
 
     <tr>
         <td>Grupos</td>
@@ -235,19 +186,6 @@
         <td class="cascada">CASCADA</td>
         <td class="restringir">RESTRINGIR</td>
         <td>Cada registro de posiciones corresponde a un equipo existente. No se puede eliminar un equipo mientras tenga estadisticas registradas en la competencia.</td>
-    </tr>
-</table>
-
-<h2>6. Premios y Reconocimientos</h2>
-
-<table>
-    <tr>
-        <th>Tabla Padre</th>
-        <th>Tabla Hijo</th>
-        <th>Insercion</th>
-        <th>Modificacion</th>
-        <th>Borrado</th>
-        <th>Justificacion</th>
     </tr>
 
     <tr>
@@ -269,9 +207,7 @@
     </tr>
 
     <tr>
-        <td>Temporadas_Torneo_
-            Grupos_Equipos_
-            Jugadores</td>
+        <td>Temporadas_Torneo_Grupos_Equipos_Jugadores</td>
         <td>Premios_Equipos</td>
         <td class="restringir">RESTRINGIR</td>
         <td class="restringir">RESTRINGIR</td>
@@ -280,27 +216,12 @@
     </tr>
 
     <tr>
-        <td>Temporadas_Torneo_
-            Grupos_Equipos_
-            Jugadores</td>
+        <td>Temporadas_Torneo_Grupos_Equipos_Jugadores</td>
         <td>Premios_Jugadores</td>
         <td class="restringir">RESTRINGIR</td>
         <td class="restringir">RESTRINGIR</td>
         <td class="restringir">RESTRINGIR</td>
         <td>Los premios individuales pertenecen a jugadores registrados en una temporada y grupo especifico.</td>
-    </tr>
-</table>
-
-<h2>7. Asociaciones Generales del Torneo</h2>
-
-<table>
-    <tr>
-        <th>Tabla Padre</th>
-        <th>Tabla Hijo</th>
-        <th>Insercion</th>
-        <th>Modificacion</th>
-        <th>Borrado</th>
-        <th>Justificacion</th>
     </tr>
 
     <tr>
@@ -335,28 +256,16 @@
 
     <tr>
         <td>Temporadas</td>
-        <td>Temporadas_Torneo_
-            Grupos_Equipos_Jugadores</td>
+        <td>Temporadas_Torneo_Grupos_Equipos_Jugadores</td>
         <td class="restringir">RESTRINGIR</td>
         <td class="cascada">CASCADA</td>
         <td class="restringir">RESTRINGIR</td>
         <td>No puede existir una asociacion sin una temporada registrada.</td>
     </tr>
-</table>
 
-<h2>8. Reglamentos</h2>
-
-<table>
-    <tr>
-        <th>Tabla Padre</th>
-        <th>Tabla Hijo</th>
-        <th>Insercion</th>
-        <th>Modificacion</th>
-        <th>Borrado</th>
-        <th>Justificacion</th>
     </tr>
     <tr>
-        <td colspan="2">La tabla Reglamentos no tiene FK hacia otras tablas. Es una tabla autonoma.</td>
+        <td colspan="2"><strong>Reglamentos:</strong> no tiene FK hacia otras tablas. Es una tabla autonoma.</td>
         <td>—</td>
         <td>—</td>
         <td class="ignorar">IGNORAR</td>
@@ -364,5 +273,6 @@
     </tr>
 </table> 
  
+
 </body>
 </html>
