@@ -206,7 +206,143 @@
         <td>La planilla registra goles, tarjetas y minutos de cada jugador. No se puede eliminar un jugador con planillas registradas porque sus estadisticas son parte del historial del torneo.</td>
     </tr>
 </table>
- 
+
+<h2>5. Tabla de Posiciones</h2>
+
+<table>
+    <tr>
+        <th>Tabla Padre</th>
+        <th>Tabla Hijo</th>
+        <th>Insercion</th>
+        <th>Modificacion</th>
+        <th>Borrado</th>
+        <th>Justificacion</th>
+    </tr>
+
+    <tr>
+        <td>Grupos</td>
+        <td>Tabla_Posiciones</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td class="cascada">CASCADA</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td>La tabla de posiciones pertenece a un grupo especifico. No se puede eliminar un grupo con posiciones registradas porque se perderia la clasificacion del torneo.</td>
+    </tr>
+
+    <tr>
+        <td>Equipos</td>
+        <td>Tabla_Posiciones</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td class="cascada">CASCADA</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td>Cada registro de posiciones corresponde a un equipo existente. No se puede eliminar un equipo mientras tenga estadisticas registradas en la competencia.</td>
+    </tr>
+</table>
+
+<h2>6. Premios y Reconocimientos</h2>
+
+<table>
+    <tr>
+        <th>Tabla Padre</th>
+        <th>Tabla Hijo</th>
+        <th>Insercion</th>
+        <th>Modificacion</th>
+        <th>Borrado</th>
+        <th>Justificacion</th>
+    </tr>
+
+    <tr>
+        <td>Premios_Grupales</td>
+        <td>Premios_Equipos</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td class="cascada">CASCADA</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td>Un premio grupal debe existir antes de asignarse a un equipo. No se puede eliminar un premio que ya fue otorgado.</td>
+    </tr>
+
+    <tr>
+        <td>Premios_Individuales</td>
+        <td>Premios_Jugadores</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td class="cascada">CASCADA</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td>Los premios individuales deben estar registrados previamente. No se pueden eliminar si existen jugadores asociados a dichos premios.</td>
+    </tr>
+
+    <tr>
+        <td>Temporadas_Torneo_
+            Grupos_Equipos_
+            Jugadores</td>
+        <td>Premios_Equipos</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td>Los premios grupales se asignan a asociaciones validas del torneo. No se puede eliminar la asociacion mientras existan premios registrados.</td>
+    </tr>
+
+    <tr>
+        <td>Temporadas_Torneo_
+            Grupos_Equipos_
+            Jugadores</td>
+        <td>Premios_Jugadores</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td>Los premios individuales pertenecen a jugadores registrados en una temporada y grupo especifico.</td>
+    </tr>
+</table>
+
+<h2>7. Asociaciones Generales del Torneo</h2>
+
+<table>
+    <tr>
+        <th>Tabla Padre</th>
+        <th>Tabla Hijo</th>
+        <th>Insercion</th>
+        <th>Modificacion</th>
+        <th>Borrado</th>
+        <th>Justificacion</th>
+    </tr>
+
+    <tr>
+        <td>Equipos</td>
+        <td>Temporadas_Torneo_
+            Grupos_Equipos_jugadores</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td class="cascada">CASCADA</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td>La asociacion requiere un equipo valido registrado previamente en el sistema.</td>
+    </tr>
+
+    <tr>
+        <td>Jugadores</td>
+        <td>Temporadas_Torneo_
+            Grupos_Equipos_Jugadores</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td class="cascada">CASCADA</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td>Todo jugador asociado debe existir previamente en la base de datos.</td>
+    </tr>
+
+    <tr>
+        <td>Grupos</td>
+        <td>Temporadas_Torneo_
+            Grupos_Equipos_Jugadores</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td class="cascada">CASCADA</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td>La asociacion depende de un grupo valido perteneciente a la temporada.</td>
+    </tr>
+
+    <tr>
+        <td>Temporadas</td>
+        <td>Temporadas_Torneo_
+            Grupos_Equipos_Jugadores</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td class="cascada">CASCADA</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td>No puede existir una asociacion sin una temporada registrada.</td>
+    </tr>
+</table>
  
  
  
