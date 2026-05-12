@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <title>Trabajo Practico N°6</title>
+</head>
+<body>
+    <h1>Trabajo Practico N° 6</h1>
+    <p><strong>Materia:</strong> Analisis y Diseño de Sistemas II</p>
+    <p><strong>Profesor:</strong> Martin Ramos</p>
+    <p><strong>Sistema:</strong> Liga de Estrellas</p>
+    <hr><br>
+
+    <div class="referencia">
+        <span class="restringir">RESTRINGIR</span> - No se permite la operacion si existen registros relacionados.<br>
+        <span class="cascada">CASCADA</span> - La operacion se propaga automaticamente a la tabla hijo. <br>
+        <span class="ignorar">IGNORAR</span> - Se permite la operacion aunque queden registros sin referencia. <br>
+    </div>
+
+    <h2>1. Estructura del Torneo / Asociación</h2>
+
+    <table>
+        <tr>
+            <th>Tabla Padre</th>
+            <th>Tabla Hijo</th>
+            <th>Inserción</th>
+            <th>Modificación</th>
+            <th>Borrado</th>
+            <th>Justificacíon</th>
+        </tr>
+        <tr>
+            <td>Tipos de Torneos</td>
+            <td>Torneos</td>
+            <td class="restringir">RESTRINGIR</td>
+            <td class="restringir">RESTRINGIR</td>
+            <td class="restringir">RESTRINGIR</td>
+            <td>No se puede crear un torneo sin un tipo valido.Tampoco se puede eliminar un tipo de torneo si ya tiene torneos asociados porque se perderia la clasificacion del torneo.</td>
+        </tr>
+        <tr>
+        <td>Categorias</td>
+        <td>Torneos</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td>Todo torneo debe pertenecer a una categoria existente. No se puede eliminar una categoria si hay torneos que la usan, porque se perderia informacion importante del torneo.</td>
+    </tr>
+    <tr>
+        <td>Torneos</td>
+        <td>Temporadas</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td>Una temporada no puede existir sin el torneo al que pertenece. No se puede borrar un torneo con temporadas registradas porque esas temporadas tienen partidos y resultados.</td>
+    </tr>
+    <tr>
+        <td>Temporadas</td>
+        <td>Grupos</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td class="cascada">CASCADA</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td>Un grupo siempre pertenece a una temporada. Si se modifica el id de la temporada, el cambio se propaga a los grupos. No se puede borrar una temporada con grupos activos.</td>
+    </tr>
+    </table>
+
+    <h2>2. Fechas y Partidos</h2>
+
+<table>
+    <tr>
+        <th>Tabla Padre</th>
+        <th>Tabla Hijo</th>
+        <th>Insercion</th>
+        <th>Modificacion</th>
+        <th>Borrado</th>
+        <th>Justificacion</th>
+    </tr>
+    <tr>
+        <td>Temporadas</td>
+        <td>Fechas</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td class="cascada">CASCADA</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td>Cada fecha (jornada) debe pertenecer a una temporada existente. No se puede eliminar una temporada con fechas programadas porque esas fechas tienen partidos asignados.</td>
+    </tr>
+    <tr>
+        <td>Fechas</td>
+        <td>Partidos</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td class="cascada">CASCADA</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td>Un partido siempre esta asociado a una fecha. No se puede eliminar una fecha con partidos registrados para no perder los resultados ya disputados.</td>
+    </tr>
+    <tr>
+        <td>Grupos</td>
+        <td>Partidos</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td>Todo partido pertenece a un grupo de la competencia. No se puede eliminar un grupo que tiene partidos disputados porque se perderia la informacion de la tabla de posiciones.</td>
+    </tr>
+    <tr>
+        <td>Predios</td>
+        <td>Partidos</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td class="cascada">CASCADA</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td>Un partido debe jugarse en un predio existente. No se puede eliminar un predio que tiene partidos asignados para conservar el historial de donde se jugaron los encuentros.</td>
+    </tr>
+    <tr>
+        <td>Partidos</td>
+        <td>Resultados</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td class="cascada">CASCADA</td>
+        <td class="cascada">CASCADA</td>
+        <td>Un resultado siempre corresponde a un partido. Si se elimina un partido por error de carga, su resultado tambien debe eliminarse porque no tiene sentido tener un resultado sin partido.</td>
+    </tr>
+</table>
+
+<h2>3. Equipos, Entrenadores y Traspasos</h2>
+
+<table>
+    <tr>
+        <th>Tabla Padre</th>
+        <th>Tabla Hijo</th>
+        <th>Insercion</th>
+        <th>Modificacion</th>
+        <th>Borrado</th>
+        <th>Justificacion</th>
+    </tr>
+    <tr>
+        <td>Equipos</td>
+        <td>Entrenadores</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td class="cascada">CASCADA</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td>Un entrenador debe estar asignado a un equipo existente. No se puede eliminar un equipo con entrenadores activos; primero deben darse de baja los entrenadores.</td>
+    </tr>
+    <tr>
+        <td>Equipos</td>
+        <td>Traspasos</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td>Un traspaso siempre referencia al equipo origen. No se puede eliminar un equipo con traspasos registrados porque son parte del historial del sistema.</td>
+    </tr>
+    <tr>
+        <td>Jugadores</td>
+        <td>Traspasos</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td>Todo traspaso esta vinculado a un jugador. No se puede eliminar un jugador con traspasos registrados porque esos datos son necesarios para el control de pases entre equipos.</td>
+    </tr>
+    <tr>
+        <td>Temporadas</td>
+        <td>Traspasos</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td>Un traspaso debe registrarse dentro de una temporada valida. No se puede borrar una temporada con traspasos registrados porque se perderia el contexto temporal del pase.</td>
+    </tr>
+    <tr>
+        <td>Torneos</td>
+        <td>Traspasos</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td>El traspaso tambien referencia al torneo en que ocurre. No se puede eliminar el torneo mientras existan traspasos registrados en el.</td>
+    </tr>
+</table>
+ 
+<h2>4. Planillas de Partido</h2>
+
+<table>
+    <tr>
+        <th>Tabla Padre</th>
+        <th>Tabla Hijo</th>
+        <th>Insercion</th>
+        <th>Modificacion</th>
+        <th>Borrado</th>
+        <th>Justificacion</th>
+    </tr>
+    <tr>
+        <td>Partidos</td>
+        <td>Planillas</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td class="cascada">CASCADA</td>
+        <td class="cascada">CASCADA</td>
+        <td>Cada planilla registra la participacion de jugadores en un partido. Si se elimina un partido por error de carga, sus planillas no tienen sentido y deben eliminarse en cascada.</td>
+    </tr>
+    <tr>
+        <td>Equipos</td>
+        <td>Planillas</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td>La planilla identifica al equipo al que pertenece el jugador en ese partido. No se puede eliminar un equipo con planillas históricas porque se perderian estadisticas y sanciones.</td>
+    </tr>
+    <tr>
+        <td>Jugadores</td>
+        <td>Planillas</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td class="restringir">RESTRINGIR</td>
+        <td>La planilla registra goles, tarjetas y minutos de cada jugador. No se puede eliminar un jugador con planillas registradas porque sus estadisticas son parte del historial del torneo.</td>
+    </tr>
+</table>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    
+</body>
+</html>

@@ -1,0 +1,44 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin:30px;
+    background-color: rgb(254, 254, 254);
+}
+ h1 {
+    text-align: center;
+    color: #8B0000;
+}
+
+h2 {
+    color: #8B0000;
+    margin-top: 30px;
+}
+
+p {
+    margin: 5px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background-color: white;
+}
+
+th {
+    background-color: #8B0000;
+    color: white;
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ccc;
+}
+
+td {
+    padding: 8px;
+    border: 1px solid #ccc;
+    vertical-align: top;
+}
+
+
+
+
+
