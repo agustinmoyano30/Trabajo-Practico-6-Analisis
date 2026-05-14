@@ -38,7 +38,14 @@ td {
     vertical-align: top;
 }
 
+select{
+    height: 50px;
+    width: 100%;
+    text-align: center;
+}
 
-
+option{
+    text-align: center;
+}
 
 
