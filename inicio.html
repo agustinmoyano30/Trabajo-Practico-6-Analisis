@@ -478,8 +478,8 @@
             </td>
             <td>
                 <select name="" id="">
-                    <option value="" selected>Restringir</option>
-                    <option value="">Cascada</option>
+                    <option value="">Restringir</option>
+                    <option value=""selected>Cascada</option>
                     <option value="">Ignorar</option>
                 </select>
             </td>
@@ -578,8 +578,8 @@
             </td>
             <td>
                 <select name="" id="">
-                    <option value="" selected>Restringir</option>
-                    <option value="">Cascada</option>
+                    <option value="">Restringir</option>
+                    <option value=""selected>Cascada</option>
                     <option value="">Ignorar</option>
                 </select>
             </td>
@@ -603,13 +603,38 @@
             </td>
             <td>
                 <select name="" id="">
+                    <option value="">Restringir</option>
+                    <option value=""selected>Cascada</option>
+                    <option value="">Ignorar</option>
+                </select>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Torneo</td>
+            <td>Temporadas_Torneo_Grupos_Equipos_jugadores</td>
+            <td>
+                <select name="" id="">
+                    <option value="" selected>Restringir</option>
+                    <option value="">Ignorar</option>
+                </select>
+            </td>
+            <td>
+                <select name="" id="">
+                    <option value="">Restringir</option>
+                    <option value=""selected>Cascada</option>
+                    <option value="">Ignorar</option>
+                </select>
+            </td>
+            <td>
+                <select name="" id="">
                     <option value="" selected>Restringir</option>
                     <option value="">Cascada</option>
                     <option value="">Ignorar</option>
                 </select>
             </td>
         </tr>
-        
+
         <tr>
             <td>Equipos</td>
             <td>Temporadas_Torneo_Grupos_Equipos_jugadores</td>
@@ -858,6 +883,11 @@
         <p><strong>Inserción:</strong> No se puede registrar una Asociacion sin tener un Torneo existente</p>
         <p><strong>Modificación:</strong> Si el identificador del Torneo cambia, se debe propagar en todos los registros de asociacion relacionadas</p>
         <p><strong>Borrado:</strong> No se puede eliminar un Torneo con registros en la tabla de asociacion</p>
+
+        <h3>Equipos → Temporadas_Torneo_Grupos_Equipos_Jugadores</h3>
+        <p><strong>Inserción:</strong> No se puede registrar una Asociacion sin tener un Equipo existente</p>
+        <p><strong>Modificación:</strong> Si el identificador del Equipo cambia, se debe propagar en todos los registros de asociacion relacionadas</p>
+        <p><strong>Borrado:</strong> No se puede eliminar un Equipo con registros en la tabla de asociacion</p>
 
         <h3>Jugadores → Temporadas_Torneo_Grupos_Equipos_Jugadores</h3>
         <p><strong>Inserción:</strong> No se puede registrar una Asociacion sin tener un jugador existente</p>
