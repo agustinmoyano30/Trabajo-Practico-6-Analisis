@@ -7,16 +7,17 @@
     <title>Trabajo Practico N°6</title>
 </head>
 <body>
-    <h1>Trabajo Practico N° 6</h1>
+    <h1>Trabajo Practico N° 6</h1><hr>
+    <div class="info">
     <p><strong>Materia:</strong> Analisis y Diseño de Sistemas II</p>
     <p><strong>Profesor:</strong> Martin Ramos</p>
     <p><strong>Sistema:</strong> Liga de Estrellas</p>
-    <hr><br>
+    </div>
 
     <div class="referencia">
-        <span class="restringir">RESTRINGIR</span> - No se permite la operacion si existen registros relacionados.<br>
-        <span class="cascada">CASCADA</span> - La operacion se propaga automaticamente a la tabla hijo. <br>
-        <span class="ignorar">IGNORAR</span> - Se permite la operacion aunque queden registros sin referencia. <br>
+        <span class="restringir"><strong>RESTRINGIR</strong></span> - No se permite la operacion si existen registros relacionados.<br>
+        <span class="cascada"><strong>CASCADA</strong></span> - La operacion se propaga automaticamente a la tabla hijo. <br>
+        <span class="ignorar"><strong>IGNORAR</strong></span> - Se permite la operacion aunque queden registros sin referencia. <br>
     </div>
 
     <h2>1. Estructura del Torneo / Asociación</h2>
@@ -32,7 +33,6 @@
             <th style="width: 100px;">Inserción</th>
             <th style="width: 100px;">Modificación</th>
             <th style="width: 100px;">Borrado</th>
-            <th>Justificacíon</th>
         </tr>
 
         <tr>
@@ -58,7 +58,6 @@
                     <option value="">Ignorar</option>
                 </select>
             </td>
-            <td>No se puede crear un torneo sin un tipo valido.Tampoco se puede eliminar un tipo de torneo si ya tiene torneos asociados porque se perderia la clasificacion del torneo.</td>
         </tr>
 
         <tr>
@@ -84,7 +83,6 @@
                     <option value="">Ignorar</option>
                 </select>
             </td>
-        <td>Todo torneo debe pertenecer a una categoria existente. No se puede eliminar una categoria si hay torneos que la usan, porque se perderia informacion importante del torneo.</td>
         </tr>
         
         <tr>
@@ -110,7 +108,6 @@
                     <option value="">Ignorar</option>
                 </select>
             </td>
-            <td>Una temporada no puede existir sin el torneo al que pertenece. No se puede borrar un torneo con temporadas registradas porque esas temporadas tienen partidos y resultados.</td>
         </tr>
         
         <tr>
@@ -136,7 +133,6 @@
                     <option value="">Ignorar</option>
                 </select>
             </td>
-            <td>Un grupo siempre pertenece a una temporada. Si se modifica el id de la temporada, el cambio se propaga a los grupos. No se puede borrar una temporada con grupos activos.</td>
         </tr>
         
         <tr>
@@ -162,7 +158,6 @@
                     <option value="">Ignorar</option>
                 </select>
             </td>
-            <td>Cada fecha (jornada) debe pertenecer a una temporada existente. No se puede eliminar una temporada con fechas programadas porque esas fechas tienen partidos asignados.</td>
         </tr>
         
         <tr>
@@ -188,7 +183,6 @@
                     <option value="">Ignorar</option>
                 </select>
             </td>
-            <td>Un partido siempre esta asociado a una fecha. No se puede eliminar una fecha con partidos registrados para no perder los resultados ya disputados.</td>
         </tr>
         
         <tr>
@@ -214,7 +208,6 @@
                     <option value="">Ignorar</option>
                 </select>
             </td>
-            <td>Todo partido pertenece a un grupo de la competencia. No se puede eliminar un grupo que tiene partidos disputados porque se perderia la informacion de la tabla de posiciones.</td>
         </tr>
         
         <tr>
@@ -240,7 +233,6 @@
                     <option value="">Ignorar</option>
                 </select>
             </td>
-            <td>Un partido debe jugarse en un predio existente. No se puede eliminar un predio que tiene partidos asignados para conservar el historial de donde se jugaron los encuentros.</td>
         </tr>
         
         <tr>
@@ -266,7 +258,6 @@
                     <option value="">Ignorar</option>
                 </select>
             </td>
-            <td>Un resultado siempre corresponde a un partido. Si se elimina un partido por error de carga, su resultado tambien debe eliminarse porque no tiene sentido tener un resultado sin partido.</td>
         </tr>
         
         <tr>
@@ -292,7 +283,6 @@
                     <option value="">Ignorar</option>
                 </select>
             </td>
-            <td>Un entrenador debe estar asignado a un equipo existente. No se puede eliminar un equipo con entrenadores activos; primero deben darse de baja los entrenadores.</td>
         </tr>
         
         <tr>
@@ -318,7 +308,6 @@
                     <option value="">Ignorar</option>
                 </select>
             </td>
-            <td>Un traspaso siempre referencia al equipo origen. No se puede eliminar un equipo con traspasos registrados porque son parte del historial del sistema.</td>
         </tr>
         
         <tr>
@@ -344,7 +333,6 @@
                     <option value="">Ignorar</option>
                 </select>
             </td>
-            <td>Todo traspaso esta vinculado a un jugador. No se puede eliminar un jugador con traspasos registrados porque esos datos son necesarios para el control de pases entre equipos.</td>
         </tr>
         
         <tr>
@@ -370,7 +358,6 @@
                     <option value="">Ignorar</option>
                 </select>
             </td>
-            <td>Un traspaso debe registrarse dentro de una temporada valida. No se puede borrar una temporada con traspasos registrados porque se perderia el contexto temporal del pase.</td>
         </tr>
         
         <tr>
@@ -396,7 +383,6 @@
                     <option value="">Ignorar</option>
                 </select>
             </td>
-            <td>El traspaso tambien referencia al torneo en que ocurre. No se puede eliminar el torneo mientras existan traspasos registrados en el.</td>
         </tr>
         
         <tr>
@@ -422,7 +408,6 @@
                     <option value="">Ignorar</option>
                 </select>
             </td>
-            <td>Cada planilla registra la participacion de jugadores en un partido. Si se elimina un partido por error de carga, sus planillas no tienen sentido y deben eliminarse en cascada.</td>
         </tr>
         
         <tr>
@@ -448,7 +433,6 @@
                     <option value="">Ignorar</option>
                 </select>
             </td>
-            <td>La planilla identifica al equipo al que pertenece el jugador en ese partido. No se puede eliminar un equipo con planillas históricas porque se perderian estadisticas y sanciones.</td>
         </tr>
         
         <tr>
@@ -474,7 +458,6 @@
                     <option value="">Ignorar</option>
                 </select>
             </td>
-            <td>La planilla registra goles, tarjetas y minutos de cada jugador. No se puede eliminar un jugador con planillas registradas porque sus estadisticas son parte del historial del torneo.</td>
         </tr>
         
         <tr>
@@ -500,7 +483,6 @@
                     <option value="">Ignorar</option>
                 </select>
             </td>
-            <td>La tabla de posiciones pertenece a un grupo especifico. No se puede eliminar un grupo con posiciones registradas porque se perderia la clasificacion del torneo.</td>
         </tr>
         
         <tr>
@@ -526,7 +508,6 @@
                     <option value="">Ignorar</option>
                 </select>
             </td>
-            <td>Cada registro de posiciones corresponde a un equipo existente. No se puede eliminar un equipo mientras tenga estadisticas registradas en la competencia.</td>
         </tr>
         
         <tr>
@@ -552,7 +533,6 @@
                     <option value="">Ignorar</option>
                 </select>
             </td>
-            <td>Un premio grupal debe existir antes de asignarse a un equipo. No se puede eliminar un premio que ya fue otorgado.</td>
         </tr>
         
         <tr>
@@ -578,7 +558,6 @@
                     <option value="">Ignorar</option>
                 </select>
             </td>
-            <td>Los premios individuales deben estar registrados previamente. No se pueden eliminar si existen jugadores asociados a dichos premios.</td>
         </tr>
         
         <tr>
@@ -604,7 +583,6 @@
                     <option value="">Ignorar</option>
                 </select>
             </td>
-            <td>Los premios grupales se asignan a asociaciones validas del torneo. No se puede eliminar la asociacion mientras existan premios registrados.</td>
         </tr>
         
         <tr>
@@ -630,7 +608,6 @@
                     <option value="">Ignorar</option>
                 </select>
             </td>
-            <td>Los premios individuales pertenecen a jugadores registrados en una temporada y grupo especifico.</td>
         </tr>
         
         <tr>
@@ -656,7 +633,6 @@
                     <option value="">Ignorar</option>
                 </select>
             </td>
-            <td>La asociacion requiere un equipo valido registrado previamente en el sistema.</td>
         </tr>
 
         <tr>
@@ -682,7 +658,6 @@
                     <option value="">Ignorar</option>
                 </select>
             </td>
-            <td>Todo jugador asociado debe existir previamente en la base de datos.</td>
         </tr>
 
         <tr>
@@ -708,7 +683,6 @@
                     <option value="">Ignorar</option>
                 </select>
             </td>
-            <td>La asociacion depende de un grupo valido perteneciente a la temporada.</td>
         </tr>
 
         <tr>
@@ -734,7 +708,6 @@
                     <option value="">Ignorar</option>
                 </select>
             </td>
-            <td>No puede existir una asociacion sin una temporada registrada.</td>
         </tr>
         <tr>
             <td colspan="2"><strong>Reglamentos:</strong> no tiene FK hacia otras tablas. Es una tabla autonoma.</td>
@@ -755,8 +728,90 @@
                     <option value=""select>Ignorar</option>
                 </select>
             </td>
-            <td>Un reglamento puede darse de baja cambiando su estado a inactivo. El borrado fisico no es recomendable porque los reglamentos son documentos historicos que sostienen las normas del torneo.</td>
         </tr>
     </table> 
+
+    <h2>2. Justificación de las Reglas de Integridad Referencial</h2>
+
+    <div class="justificacion">
+        <h3>Tipos de Torneos → Torneos</h3>
+        <p><strong>Inserción:</strong> No se puede crear un torneo sin un tipo válido registrado previamente.</p>
+        <p><strong>Modificación:</strong> Si el identificador del tipo cambia, la modificación debe propagarse automáticamente a los torneos relacionados.</p>
+        <p><strong>Borrado:</strong> No se puede eliminar un tipo de torneo mientras existan torneos asociados porque se perdería la clasificación del campeonato.</p>
+
+        <h3>Categorías → Torneos</h3>
+        <p><strong>Inserción:</strong> Todo torneo debe pertenecer a una categoría existente.</p>
+        <p><strong>Modificación:</strong> Si cambia el identificador de la categoría, el cambio debe actualizarse en los torneos relacionados.</p>
+        <p><strong>Borrado:</strong> No se puede eliminar una categoría con torneos registrados porque afectaría la organización del sistema.</p>
+
+        <h3>Torneos → Temporadas</h3>
+        <p><strong>Inserción:</strong> Una temporada no puede existir sin un torneo previamente registrado.</p>
+        <p><strong>Modificación:</strong> Los cambios en el identificador del torneo deben reflejarse en las temporadas relacionadas.</p>
+        <p><strong>Borrado:</strong> No se puede eliminar un torneo que tenga temporadas registradas porque contienen partidos e historial.</p>
+
+        <h3>Temporadas → Grupos</h3>
+        <p><strong>Inserción:</strong> Todo grupo debe pertenecer a una temporada válida.</p>
+        <p><strong>Modificación:</strong> Si cambia el identificador de la temporada, el cambio debe propagarse automáticamente.</p>
+        <p><strong>Borrado:</strong> No se puede eliminar una temporada con grupos activos registrados.</p>
+
+        <h3>Temporadas → Fechas</h3>
+        <p><strong>Inserción:</strong> Cada fecha debe registrarse dentro de una temporada existente.</p>
+        <p><strong>Modificación:</strong> La modificación del identificador de temporada debe actualizar las fechas relacionadas.</p>
+        <p><strong>Borrado:</strong> No se puede eliminar una temporada con fechas programadas.</p>
+
+        <h3>Fechas → Partidos</h3>
+        <p><strong>Inserción:</strong> Un partido debe pertenecer a una fecha válida.</p>
+        <p><strong>Modificación:</strong> Si cambia el identificador de la fecha, los partidos deben actualizarse automáticamente.</p>
+        <p><strong>Borrado:</strong> No se puede eliminar una fecha con partidos registrados.</p>
+
+        <h3>Grupos → Partidos</h3>
+        <p><strong>Inserción:</strong> Todo partido debe pertenecer a un grupo existente.</p>
+        <p><strong>Modificación:</strong> Las modificaciones en el grupo deben reflejarse en los partidos asociados.</p>
+        <p><strong>Borrado:</strong> No se puede eliminar un grupo con partidos disputados.</p>
+
+        <h3>Predios → Partidos</h3>
+        <p><strong>Inserción:</strong> Todo partido debe jugarse en un predio registrado.</p>
+        <p><strong>Modificación:</strong> Los cambios en el identificador del predio deben propagarse a los partidos.</p>
+        <p><strong>Borrado:</strong> No se puede eliminar un predio con partidos asignados.</p>
+
+        <h3>Partidos → Resultados</h3>
+        <p><strong>Inserción:</strong> Un resultado solo puede existir si el partido fue registrado previamente.</p>
+        <p><strong>Modificación:</strong> Si cambia el identificador del partido, debe actualizarse en los resultados.</p>
+        <p><strong>Borrado:</strong> Si se elimina un partido por error de carga, sus resultados también deben eliminarse en cascada.</p>
+
+        <h3>Partidos → Planillas</h3>
+        <p><strong>Inserción:</strong> Toda planilla debe corresponder a un partido existente.</p>
+        <p><strong>Modificación:</strong> Los cambios del identificador del partido deben propagarse automáticamente.</p>
+        <p><strong>Borrado:</strong> Si se elimina un partido, sus planillas también deben eliminarse porque dependen directamente del encuentro.</p>
+
+        <h3>Equipos → Entrenadores</h3>
+        <p><strong>Inserción:</strong> Un entrenador debe pertenecer a un equipo válido.</p>
+        <p><strong>Modificación:</strong> Los cambios en el equipo deben reflejarse automáticamente en los entrenadores.</p>
+        <p><strong>Borrado:</strong> No se puede eliminar un equipo con entrenadores activos.</p>
+
+        <h3>Equipos → Traspasos</h3>
+        <p><strong>Inserción:</strong> Todo traspaso debe referenciar a un equipo existente.</p>
+        <p><strong>Modificación:</strong> Las modificaciones del equipo deben actualizarse automáticamente.</p>
+        <p><strong>Borrado:</strong> No se puede eliminar un equipo con traspasos históricos registrados.</p>
+
+        <h3>Jugadores → Traspasos</h3>
+        <p><strong>Inserción:</strong> Todo traspaso debe estar vinculado a un jugador existente.</p>
+        <p><strong>Modificación:</strong> Los cambios del jugador deben propagarse automáticamente.</p>
+        <p><strong>Borrado:</strong> No se puede eliminar un jugador con traspasos registrados.</p>
+
+        <h3>Temporadas → Traspasos</h3>
+        <p><strong>Inserción:</strong> El traspaso debe registrarse dentro de una temporada válida.</p>
+        <p><strong>Modificación:</strong> Si cambia la temporada, el cambio debe reflejarse en los traspasos.</p>
+        <p><strong>Borrado:</strong> No se puede eliminar una temporada con traspasos registrados.</p>
+
+        <h3>Torneos → Traspasos</h3>
+        <p><strong>Inserción:</strong> Todo traspaso debe pertenecer a un torneo válido.</p>
+        <p><strong>Modificación:</strong> Los cambios del torneo deben actualizarse automáticamente.</p>
+        <p><strong>Borrado:</strong> No se puede eliminar un torneo con traspasos registrados.</p>
+
+    </div>
+    <footer>
+        <p><strong>ANÁLISIS y DISEÑO II</strong></p>
+    </footer>
 </body>
 </html>
