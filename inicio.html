@@ -835,24 +835,24 @@
         <p><strong>Borrado:</strong>No se puede eliminar un equipo registrada en la tabla de posiciones</p>
 
         <h3>Premios_Grupales → Premios_Equipos</h3>
-        <p><strong>Inserción:</strong></p>
-        <p><strong>Modificación:</strong></p>
-        <p><strong>Borrado:</strong></p>
+        <p><strong>Inserción:</strong>No se puede registrar un Premio a equipo sin tener asociado un premio grupal</p>
+        <p><strong>Modificación:</strong>Si su identificador cambia se debe propagar de manera automatica a los premios a equipo relacionados</p>
+        <p><strong>Borrado:</strong>No se puede borrar un premio grupal que fue otorgado a un equipo</p>
         
         <h3>Premios_Individuales → Premios_Jugadores</h3>
-        <p><strong>Inserción:</strong></p>
-        <p><strong>Modificación:</strong></p>
-        <p><strong>Borrado:</strong></p>
+        <p><strong>Inserción:</strong>No se puede registrar un Premio a jugador sin tener asociado un premio individual</p>
+        <p><strong>Modificación:</strong>Si su identificador cambia se debe propagar de manera automatica a los premios a jugador relacionados</p>
+        <p><strong>Borrado:</strong>No se puede borrar un premio individual que fue otorgado a un Jugador</p>
 
         <h3>Temporadas_Torneo_Grupos_Equipos_Jugadores → Premios_Equipos</h3>
-        <p><strong>Inserción:</strong></p>
-        <p><strong>Modificación:</strong></p>
-        <p><strong>Borrado:</strong></p>
+        <p><strong>Inserción:</strong>No se puede registrar un premio a equipo sin tener una Asociacion</p>
+        <p><strong>Modificación:</strong>Si su identificador cambia se debe propagar de manera automatica a los premios a equipo relacionados</p>
+        <p><strong>Borrado:</strong>Si se elimina la asociacion se deben borrar a la par los Premios a Grupo vinculados</p>
 
         <h3>Temporadas_Torneo_Grupos_Equipos_Jugadores → Premios_Jugadores</h3>
-        <p><strong>Inserción:</strong></p>
-        <p><strong>Modificación:</strong></p>
-        <p><strong>Borrado:</strong></p>
+        <p><strong>Inserción:</strong>No se puede registrar un premio a jugador sin tener una Asociacion</p>
+        <p><strong>Modificación:</strong>Si su identificador cambia se debe propagar de manera automatica a los premios a jugador relacionados</p>
+        <p><strong>Borrado:</strong>Si se elimina la asociacion se deben borrar a la par los Premios a jugador vinculados</p>
 
         <h3>Torneos → Temporadas_Torneo_Grupos_Equipos_Jugadores</h3>
         <p><strong>Inserción:</strong></p>
